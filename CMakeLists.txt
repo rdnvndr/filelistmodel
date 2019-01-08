@@ -1,10 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 project(filelistmodel VERSION 1.0.0)
 
-set(LIBRARIES
-    sqlextension
-)
-
 # Файлы для сборки
 file(GLOB HEADERS   "*.h")
 file(GLOB SOURCES   "*.cpp")
@@ -18,7 +14,6 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC_OPTIONS -no-compress)
 set(ignoreMe "${QT_QMAKE_EXECUTABLE}")
-
 
 # Сборка проекта
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} ${FORMS} ${RESOURCES})
