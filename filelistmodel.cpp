@@ -100,9 +100,8 @@ TreeItem *FileListModel::startFetchMore(TreeItem *parentItem)
     QDir dir(parentItem->data(4).toString());
     dir.setSorting(QDir::Type);
     dir.setFilter(dir.filter() | QDir::NoDotAndDotDot);
-    QFileInfoList listInfo = dir.entryInfoList();
 
-    foreach (QFileInfo fileInfo, listInfo){
+    for (const QFileInfo &fileInfo : dir.entryInfoList()){
         QList<QVariant> itemData;
         itemData << fileInfo.fileName() << fileInfo.size()
                  << fileInfo.isDir()    << fileInfo.lastModified()
